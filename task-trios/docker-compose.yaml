@@ -19,8 +19,8 @@ services:
       published: 3306 
       protocol: tcp
     environment:
-    - MYSQL_ROOT_PASSWORD=pass
-    - MYSQL_DATABASE=flask-db  
+      MYSQL_ROOT_PASSWORD: ${password}
+      MYSQL_DATABASE: flask-db  
   flask-app: 
     build: ./flask-app
     ports:
@@ -28,7 +28,7 @@ services:
       published: 5000
       protocol: tcp
     environment:
-    - SECRET_KEY=thisismysecretkey
+      DATABASE_URI: ${DATABASE_URI}
     depends_on: 
     - mysql
     

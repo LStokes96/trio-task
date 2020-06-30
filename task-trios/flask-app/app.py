@@ -5,7 +5,7 @@ from os import getenv
 app = Flask(__name__)
 db = SQLAlchemy(app)
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:pass@mysql:3306/flask-db'
+app.config['SQLALCHEMY_DATABASE_URI'] = getenv('DATABASE_URI')
 
 class Users(db.Model):
 	id = db.Column(db.Integer, primary_key=True)
