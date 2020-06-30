@@ -8,8 +8,12 @@ RUN apt-get install python3-venv python3-pip -y
 COPY . .
  
 # run pip dependencies
-RUN python3 -m venv venv 
+RUN python3 -m venv venv
 RUN . venv/bin/activate
+RUN pip3 install flask
+RUN pip3 install flask-sqlalchemy
+RUN pip3 install PyMySQL[rsa]
+
  
 
 # Expose correct port
