@@ -13,6 +13,7 @@ services:
       source: ./nginx/nginx.conf
       target: /etc/nginx/nginx.conf
   mysql:
+    image: liocaman/trio-db
     build: ./db
     ports: 
     - target: 3306
@@ -22,6 +23,7 @@ services:
       MYSQL_ROOT_PASSWORD: ${password}
       MYSQL_DATABASE: flask-db  
   flask-app: 
+    image: liocaman/trio-app
     build: ./flask-app
     ports:
     - target: 5000
